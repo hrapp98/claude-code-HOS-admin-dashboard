@@ -117,6 +117,295 @@
         </main>
     </div>
     
+    <!-- Modals -->
+    <!-- Add Client Modal -->
+    <div id="addClientModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-building"></i> Add New Client</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="addClientForm" class="modal-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="clientName">Client Name *</label>
+                        <input type="text" id="clientName" name="clientName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="clientAvatar">Avatar (2 letters)</label>
+                        <input type="text" id="clientAvatar" name="clientAvatar" maxlength="2" placeholder="AC">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="clientStatus">Status</label>
+                        <select id="clientStatus" name="clientStatus">
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                            <option value="paused">Paused</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="clientRecruiting">Recruiting</label>
+                        <select id="clientRecruiting" name="clientRecruiting">
+                            <option value="false">No</option>
+                            <option value="true">Yes</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="clientMRR">Monthly Recurring Revenue ($)</label>
+                        <input type="number" id="clientMRR" name="clientMRR" min="0" step="100">
+                    </div>
+                    <div class="form-group">
+                        <label for="clientAccountManager">Account Manager</label>
+                        <select id="clientAccountManager" name="clientAccountManager">
+                            <option value="James Gutierrez">James Gutierrez</option>
+                            <option value="Harlan Rappaport">Harlan Rappaport</option>
+                            <option value="Philip Ruffini">Philip Ruffini</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal('addClientModal')">Cancel</button>
+                    <button type="submit" class="btn-primary">Add Client</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Contractor Modal -->
+    <div id="addContractorModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-user-plus"></i> Add New Contractor</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="addContractorForm" class="modal-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contractorName">Full Name *</label>
+                        <input type="text" id="contractorName" name="contractorName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contractorAvatar">Avatar (2 letters)</label>
+                        <input type="text" id="contractorAvatar" name="contractorAvatar" maxlength="2">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contractorRole">Role *</label>
+                        <input type="text" id="contractorRole" name="contractorRole" required placeholder="e.g., Virtual Assistant">
+                    </div>
+                    <div class="form-group">
+                        <label for="contractorClient">Client</label>
+                        <select id="contractorClient" name="contractorClient">
+                            <option value="">Select Client</option>
+                            <option value="MANTEGRO CAPITAL">MANTEGRO CAPITAL</option>
+                            <option value="ANECDOTE LABS">ANECDOTE LABS</option>
+                            <option value="WILDCARD INTROS">WILDCARD INTROS</option>
+                            <option value="LELAND">LELAND</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contractorSalary">Monthly Salary ($)</label>
+                        <input type="number" id="contractorSalary" name="contractorSalary" min="0" step="100">
+                    </div>
+                    <div class="form-group">
+                        <label for="contractorStatus">Status</label>
+                        <select id="contractorStatus" name="contractorStatus">
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                            <option value="on-leave">On Leave</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contractorWorkStatus">Work Status</label>
+                        <select id="contractorWorkStatus" name="contractorWorkStatus">
+                            <option value="Green">Green - Excellent</option>
+                            <option value="Yellow">Yellow - Needs Attention</option>
+                            <option value="Red">Red - Issues</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="contractorEmail">Email</label>
+                        <input type="email" id="contractorEmail" name="contractorEmail">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal('addContractorModal')">Cancel</button>
+                    <button type="submit" class="btn-primary">Add Contractor</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Equipment Modal -->
+    <div id="addEquipmentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-laptop"></i> Add Equipment Assignment</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="addEquipmentForm" class="modal-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="equipmentName">Equipment Name *</label>
+                        <input type="text" id="equipmentName" name="equipmentName" required placeholder="e.g., Lenovo ThinkPad">
+                    </div>
+                    <div class="form-group">
+                        <label for="equipmentCategory">Category</label>
+                        <select id="equipmentCategory" name="equipmentCategory">
+                            <option value="laptop">Laptop</option>
+                            <option value="monitor">Monitor</option>
+                            <option value="headset">Headset</option>
+                            <option value="phone">Phone</option>
+                            <option value="accessories">Accessories</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="equipmentAssignedTo">Assigned To</label>
+                        <select id="equipmentAssignedTo" name="equipmentAssignedTo">
+                            <option value="">Select Contractor</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="equipmentClient">Client</label>
+                        <select id="equipmentClient" name="equipmentClient">
+                            <option value="">Select Client</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="equipmentSource">Source</label>
+                        <select id="equipmentSource" name="equipmentSource">
+                            <option value="Rental">Rental</option>
+                            <option value="Purchase">Purchase</option>
+                            <option value="Client Provided">Client Provided</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="equipmentSerialNumber">Serial Number</label>
+                        <input type="text" id="equipmentSerialNumber" name="equipmentSerialNumber">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal('addEquipmentModal')">Cancel</button>
+                    <button type="submit" class="btn-primary">Add Equipment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Create Escalation Modal -->
+    <div id="createEscalationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-exclamation-triangle"></i> Create Escalation Ticket</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="createEscalationForm" class="modal-form">
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="escalationTitle">Issue Title *</label>
+                        <input type="text" id="escalationTitle" name="escalationTitle" required placeholder="Brief description of the issue">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="escalationPriority">Priority *</label>
+                        <select id="escalationPriority" name="escalationPriority" required>
+                            <option value="">Select Priority</option>
+                            <option value="high">High - Urgent</option>
+                            <option value="medium">Medium - Normal</option>
+                            <option value="low">Low - When Possible</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="escalationClient">Related Client</label>
+                        <select id="escalationClient" name="escalationClient">
+                            <option value="">Select Client</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="escalationDescription">Detailed Description *</label>
+                        <textarea id="escalationDescription" name="escalationDescription" required rows="4" placeholder="Provide detailed information about the issue, steps taken, and expected resolution"></textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="escalationSubmittedBy">Submitted By</label>
+                        <input type="text" id="escalationSubmittedBy" name="escalationSubmittedBy" value="Harlan Rappaport" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="escalationCategory">Category</label>
+                        <select id="escalationCategory" name="escalationCategory">
+                            <option value="payment">Payment Issue</option>
+                            <option value="equipment">Equipment Request</option>
+                            <option value="training">Training Request</option>
+                            <option value="performance">Performance Issue</option>
+                            <option value="technical">Technical Problem</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal('createEscalationModal')">Cancel</button>
+                    <button type="submit" class="btn-primary">Create Ticket</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- View Details Modal -->
+    <div id="viewDetailsModal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2 id="viewDetailsTitle"><i class="fas fa-info-circle"></i> Details</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div id="viewDetailsContent" class="modal-body">
+                <!-- Dynamic content will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary" onclick="closeModal('viewDetailsModal')">Close</button>
+                <button type="button" class="btn-primary" id="viewDetailsEditBtn">Edit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content small">
+            <div class="modal-header">
+                <h2 id="confirmationTitle"><i class="fas fa-question-circle"></i> Confirm Action</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p id="confirmationMessage">Are you sure you want to perform this action?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary" onclick="closeModal('confirmationModal')">Cancel</button>
+                <button type="button" class="btn-danger" id="confirmationConfirmBtn">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container">
+        <!-- Toast notifications will be dynamically added here -->
+    </div>
+    
     <script src="assets/js/app.js"></script>
 </body>
 </html>
